@@ -1,0 +1,19 @@
+.star{
+    color: grey;
+}
+
+
+.dropdown{
+    width:500px;
+    margin: auto;
+    margin-top: 20px;
+}
+ @media(max-width: 768px){
+    .dropdown{
+        width:100%;
+    }
+}
+
+.radio{
+    display: none;
+}
