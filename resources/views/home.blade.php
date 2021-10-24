@@ -36,6 +36,7 @@
                                     <th>Teaching Quality</th>
                                     <th>Friendliness</th>
                                     <th>Would Recommend</th>
+                                    <th>Submission Count</th>
                                 </tr>
                             </thead>
                             <tbody>
