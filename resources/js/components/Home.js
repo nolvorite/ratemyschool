@@ -17,7 +17,7 @@ const Home = (props) => {
             <Section>
                 <Hero>
                     <h2>School-rating online platform for students.</h2>
-                    <img src="./images/schoolarea.svg"/>
+                    <img src="/images/schoolarea.svg"/>
                 </Hero>
                 <Form>
                     <Review>
@@ -28,32 +28,20 @@ const Home = (props) => {
             <Discover>
                 <h1>Discover Reviews</h1>
                 <SchoolsList>
-               <a href='/schools/PennSchool'>
-                   <SchoolLink>
-                        <img src="./images/schoolarea.svg"/>
-                        PennSchool
-  
-                        <div>See more...</div>
-                   </SchoolLink>
-                </a>
+                {schoolData.slice(0,3).map((data, i) => {
+                    return (
 
-               <a href='/schools/HIBS'>
-                   <SchoolLink>
-                        <img src="./images/schoolarea.svg"/>
-                        HIBS
-     
-                        <div>See more...</div>
-                   </SchoolLink>
-                </a>
-
-               <a href='/schools/TAS'>
-                   <SchoolLink>
-                        <img src="./images/schoolarea.svg"/>
-                        TAS
-  
-                        <div>See more...</div>
-                   </SchoolLink>
-                </a>
+                        <a href={'/schools/'+data.school_name}>
+                           <SchoolLink>
+                                <img src="/images/schoolarea.svg"/>
+                                {data.school_name}
+                                <StarRating rating={data.true_average} />
+                                <div>See more...</div>
+                           </SchoolLink>
+                        </a>
+                    )
+                })}
+              
             </SchoolsList>
             <More>
                 <a href="/schools">More schools...</a>

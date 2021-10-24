@@ -66,7 +66,37 @@ class HomeController extends Controller
     }
 
     public function home(Request $request){
-        return view('welcome');
+        $ratingData = DB::
+
+        select("
+            SELECT 
+
+            school_name,
+            (
+            AVG(location) +
+            AVG(size) +
+            AVG(campus_cleanliness) +
+            AVG(amenities) +
+            AVG(bathroom_cleanliness) +
+            AVG(student_friendliness) +
+            AVG(ease_of_navigation) +
+            AVG(teaching_quality) +
+            AVG(friendliness) +
+            AVG(would_recommend) 
+
+            ) / 10 AS true_average
+
+
+            FROM `ratings`
+
+
+            GROUP BY school_name
+
+        ");
+
+        $schoolList = true;
+
+        return view('welcome', compact('ratingData', 'schoolList'));
     }
 
     /**
