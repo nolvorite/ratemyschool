@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home']);
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'home']);
 Route::get('/review', [App\Http\Controllers\HomeController::class, 'home']);
+Route::get('/schools/{school_name}', [App\Http\Controllers\HomeController::class, 'get_rating']);
+
+Route::get('/school_data/{school_name}', [App\Http\Controllers\HomeController::class, 'get_rating_data']);
+Route::get('/schools', [App\Http\Controllers\HomeController::class, 'home']);
+
 
 Route::post('/submit_review', [App\Http\Controllers\HomeController::class, 'submit_review']);
-
-Route::get('/review/{school_name}', [App\Http\Controllers\HomeController::class, 'home2']);
 
 Auth::routes();
 

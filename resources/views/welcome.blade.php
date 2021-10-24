@@ -28,7 +28,17 @@
         </script>
         @endif
 
+        @if(isset($viewSchool))
+
+        <script type="text/javascript">
+            const schoolData = {!! json_encode($ratingData) !!}
+        </script>
+
+        @endif
+
         <script src="{{ asset('js/index.js') }}"></script>
+
+        
 
         <script type="text/javascript">
 

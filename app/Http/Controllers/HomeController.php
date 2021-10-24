@@ -24,28 +24,41 @@ class HomeController extends Controller
     public function submit_review(Request $request){
         $response = ['status' => true];
 
-        $dataToSubmit = [
-            'school_name' => $request->post('school_name'),
-            'location' => $request->post('location'),
-            'size' => $request->post('size'),
-            'campus_cleanliness' => $request->post('campus_cleanliness'),
-            'classroom_cleanliness' => $request->post('classroom_cleanliness'),
-            'amenities' => $request->post('amenities'),
-            'bathroom_cleanliness' => $request->post('bathroom_cleanliness'),
-            'student_friendliness' => $request->post('student_friendliness'),
-            'ease_of_navigation' => $request->post('ease_of_navigation'),
-            'teaching_quality' => $request->post('teaching_quality'),
-            'friendliness' => $request->post('friendliness'),
-            'would_recommend' => $request->post('would_recommend'),
-            'ip_address' => $_SERVER['REMOTE_ADDR']
-        ];
+        //check to see how many was submitted in this IP
 
-        try {
-            DB::table('ratings')->insert($dataToSubmit);
-        }catch(\Exception $e){
+        $countCheck = DB::table('ratings')->where('ip_address',$_SERVER['REMOTE_ADDR'])->get();
+
+        if($countCheck >= 10):
+
             $response['status'] = false;
-            $response['error'] = $e->getMessage();
-        }
+            $response['error'] = 'Maximum registration attempts exceeded.';
+
+        else:
+
+            $dataToSubmit = [
+                'school_name' => $request->post('school_name'),
+                'location' => $request->post('location'),
+                'size' => $request->post('size'),
+                'campus_cleanliness' => $request->post('campus_cleanliness'),
+                'classroom_cleanliness' => $request->post('classroom_cleanliness'),
+                'amenities' => $request->post('amenities'),
+                'bathroom_cleanliness' => $request->post('bathroom_cleanliness'),
+                'student_friendliness' => $request->post('student_friendliness'),
+                'ease_of_navigation' => $request->post('ease_of_navigation'),
+                'teaching_quality' => $request->post('teaching_quality'),
+                'friendliness' => $request->post('friendliness'),
+                'would_recommend' => $request->post('would_recommend'),
+                'ip_address' => $_SERVER['REMOTE_ADDR']
+            ];
+
+            try {
+                DB::table('ratings')->insert($dataToSubmit);
+            }catch(\Exception $e){
+                $response['status'] = false;
+                $response['error'] = $e->getMessage();
+            }
+
+        endif;
 
         
 
@@ -61,6 +74,42 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function get_rating(Request $request, $school_name){
+
+        @$ratingData =  DB::
+
+        select("
+            SELECT 
+
+            school_name,
+            ROUND(AVG(location)) as 'location',
+            ROUND(AVG(size)) as 'size',
+            ROUND(AVG(campus_cleanliness)) as 'campus_cleanliness',
+            ROUND(AVG(amenities)) as 'amenities',
+            ROUND(AVG(bathroom_cleanliness)) as 'bathroom_cleanliness',
+            ROUND(AVG(student_friendliness)) as 'student_friendliness',
+            ROUND(AVG(ease_of_navigation)) as 'ease_of_navigation',
+            ROUND(AVG(teaching_quality)) as 'teaching_quality',
+            ROUND(AVG(friendliness)) as 'friendliness',
+            ROUND(AVG(would_recommend)) as 'would_recommend'
+
+            FROM `ratings`
+
+            WHERE LOWER(school_name) = ?
+
+            GROUP BY school_name
+
+        ", [strtolower($school_name)])[0];
+
+        if($ratingData === null){
+            return redirect('/schools');
+        }
+
+        return view('welcome', ['viewSchool' => true, 'ratingData' => $ratingData, 'school_name' => $school_name]);
+
+    }
+
     public function index()
     {
 

@@ -13,6 +13,9 @@ class CreateRatingsTable extends Migration
      */
     public function up()
     {
+
+        //submit 10 limit
+
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->string('school_name');
@@ -27,7 +30,7 @@ class CreateRatingsTable extends Migration
             $table->integer('teaching_quality')->default(1);
             $table->integer('friendliness')->default(1);
             $table->integer('would_recommend')->default(1);
-            $table->string('ip_address')->unique();
+            $table->string('ip_address');
             $table->timestamps();
             $table->softDeletes();
         });

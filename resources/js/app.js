@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Schools from "./components/Schools";
 import Review from "./components/Review";
 import About from "./components/About";
-
+import ViewSchool from "./components/ViewSchool";
 
 class App extends Component{
 
@@ -18,6 +18,10 @@ class App extends Component{
             <Switch>
               <Route exact path="/">
                 <Home />
+              </Route>
+              <Route path='/schools/:school_name'>
+                <Header />
+                <ViewSchool />
               </Route>
               <Route path='/schools'>
                 <Header />

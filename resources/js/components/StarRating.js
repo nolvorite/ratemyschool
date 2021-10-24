@@ -2,10 +2,14 @@ import React, {useState} from "react";
 import {FaStar} from "react-icons/fa";
 
 const StarRating = (props) => {
-    const [rating, setRating] = useState(null);
+    var [rating, setRating] = useState(null);
+
+    if(typeof props.rating === 'string'){
+        rating = parseInt(props.rating);
+    }
 
     return (
-        <div>
+        <div class='star_rating'>
             {[...Array(5)].map((star, i) => {
                 const ratingValue = i + 1;
                 return (

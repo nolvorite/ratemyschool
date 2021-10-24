@@ -24,25 +24,25 @@ const Schools = (props) => {
             </Sort>
 
             <SchoolsList>
-               <a href='pennschool'>
+               <a href='/schools/PennSchool'>
                    <SchoolLink>
                         <img src="./images/schoolarea.svg"/>
                         PennSchool
                         <StarRatingFixed />
-                        <div><a href='pennschool'>See more...</a></div>
+                        <div><a href='/schools/PennSchool'>See more...</a></div>
                    </SchoolLink>
                 </a>
 
-               <a href='hibs'>
+               <a href='/schools/HIBS'>
                    <SchoolLink>
                         <img src="./images/schoolarea.svg"/>
                         HIBS
                         <StarRatingFixed />
-                        <div><a href='hibs'>See more...</a></div>
+                        <div><a href='/schools/HIBS'>See more...</a></div>
                    </SchoolLink>
                 </a>
 
-               <a href='tas'>
+               <a href='/schools/TAS'>
                    <SchoolLink>
                         <img src="./images/schoolarea.svg"/>
                         TAS
@@ -53,30 +53,30 @@ const Schools = (props) => {
             </SchoolsList>
             
             <SchoolsList2>
-            <a href='eis'>
+            <a href='/schools/EIS'>
                    <SchoolLink>
                         <img src="./images/schoolarea.svg"/>
                         EIS
                         <StarRatingFixed />
-                        <div><a href='eis'>See more...</a></div>
+                        <div><a href='/schools/EIS'>See more...</a></div>
                    </SchoolLink>
                 </a>
 
-               <a href='ais'>
+               <a href='/schools/AIS'>
                    <SchoolLink>
                         <img src="./images/schoolarea.svg"/>
                         AIS
                         <StarRatingFixed />
-                        <div><a href='ais'>See more...</a></div>
+                        <div><a href='/schools/AIS'>See more...</a></div>
                    </SchoolLink>
                 </a>
 
-               <a href='ishcmc'>
+               <a href='/schools/ISHCMC'>
                    <SchoolLink>
                         <img src="./images/schoolarea.svg"/>
                         ISHCMC
                         <StarRatingFixed />
-                        <div><a href='ishcmc'>See more...</a></div>
+                        <div><a href='/schools/ISHCMC'>See more...</a></div>
                    </SchoolLink>
                 </a>
             </SchoolsList2>
