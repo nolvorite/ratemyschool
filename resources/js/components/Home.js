@@ -28,30 +28,30 @@ const Home = (props) => {
             <Discover>
                 <h1>Discover Reviews</h1>
                 <SchoolsList>
-               <a href='pennschool'>
+               <a href='/schools/PennSchool'>
                    <SchoolLink>
                         <img src="./images/schoolarea.svg"/>
                         PennSchool
-                        <StarRatingFixed />
-                        <div><a href='hibs'>See more...</a></div>
+  
+                        <div>See more...</div>
                    </SchoolLink>
                 </a>
 
-               <a href='hibs'>
+               <a href='/schools/HIBS'>
                    <SchoolLink>
                         <img src="./images/schoolarea.svg"/>
                         HIBS
-                        <StarRatingFixed />
-                        <div><a href='hibs'>See more...</a></div>
+     
+                        <div>See more...</div>
                    </SchoolLink>
                 </a>
 
-               <a href='tas'>
+               <a href='/schools/TAS'>
                    <SchoolLink>
                         <img src="./images/schoolarea.svg"/>
                         TAS
-                        <StarRatingFixed />
-                        <div><a href='hibs'>See more...</a></div>
+  
+                        <div>See more...</div>
                    </SchoolLink>
                 </a>
             </SchoolsList>

@@ -28,13 +28,15 @@
         </script>
         @endif
 
-        @if(isset($viewSchool))
+        @if(isset($viewSchool) || isset($schoolList))
 
         <script type="text/javascript">
             const schoolData = {!! json_encode($ratingData) !!}
         </script>
 
         @endif
+
+
 
         <script src="{{ asset('js/index.js') }}"></script>
 

@@ -28,7 +28,7 @@ class HomeController extends Controller
 
         $countCheck = DB::table('ratings')->where('ip_address',$_SERVER['REMOTE_ADDR'])->get();
 
-        if($countCheck >= 10):
+        if(count($countCheck) >= 10):
 
             $response['status'] = false;
             $response['error'] = 'Maximum registration attempts exceeded.';
@@ -74,6 +74,40 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function schools(Request $request){
+        $ratingData = DB::
+
+        select("
+            SELECT 
+
+            school_name,
+            (
+            AVG(location) +
+            AVG(size) +
+            AVG(campus_cleanliness) +
+            AVG(amenities) +
+            AVG(bathroom_cleanliness) +
+            AVG(student_friendliness) +
+            AVG(ease_of_navigation) +
+            AVG(teaching_quality) +
+            AVG(friendliness) +
+            AVG(would_recommend) 
+
+            ) / 10 AS true_average
+
+
+            FROM `ratings`
+
+
+            GROUP BY school_name
+
+        ");
+
+        return view('welcome', ['schoolList' => true, 'ratingData' => $ratingData]);
+
+
+    }
 
     public function get_rating(Request $request, $school_name){
 

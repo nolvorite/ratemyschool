@@ -19,7 +19,7 @@ Route::get('/review', [App\Http\Controllers\HomeController::class, 'home']);
 Route::get('/schools/{school_name}', [App\Http\Controllers\HomeController::class, 'get_rating']);
 
 Route::get('/school_data/{school_name}', [App\Http\Controllers\HomeController::class, 'get_rating_data']);
-Route::get('/schools', [App\Http\Controllers\HomeController::class, 'home']);
+Route::get('/schools', [App\Http\Controllers\HomeController::class, 'schools']);
 
 
 Route::post('/submit_review', [App\Http\Controllers\HomeController::class, 'submit_review']);

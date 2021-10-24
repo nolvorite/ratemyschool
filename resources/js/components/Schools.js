@@ -24,62 +24,22 @@ const Schools = (props) => {
             </Sort>
 
             <SchoolsList>
-               <a href='/schools/PennSchool'>
-                   <SchoolLink>
-                        <img src="./images/schoolarea.svg"/>
-                        PennSchool
-                        <StarRatingFixed />
-                        <div><a href='/schools/PennSchool'>See more...</a></div>
-                   </SchoolLink>
-                </a>
+                {schoolData.map((data, i) => {
+                    return (
 
-               <a href='/schools/HIBS'>
-                   <SchoolLink>
-                        <img src="./images/schoolarea.svg"/>
-                        HIBS
-                        <StarRatingFixed />
-                        <div><a href='/schools/HIBS'>See more...</a></div>
-                   </SchoolLink>
-                </a>
-
-               <a href='/schools/TAS'>
-                   <SchoolLink>
-                        <img src="./images/schoolarea.svg"/>
-                        TAS
-                        <StarRatingFixed />
-                        <div><a href='tas'>See more...</a></div>
-                   </SchoolLink>
-                </a>
+                        <a href={'/schools/'+data.school_name}>
+                           <SchoolLink>
+                                <img src="/images/schoolarea.svg"/>
+                                {data.school_name}
+                                <StarRating rating={data.true_average} />
+                                <div>See more...</div>
+                           </SchoolLink>
+                        </a>
+                    )
+                })}
+              
             </SchoolsList>
             
-            <SchoolsList2>
-            <a href='/schools/EIS'>
-                   <SchoolLink>
-                        <img src="./images/schoolarea.svg"/>
-                        EIS
-                        <StarRatingFixed />
-                        <div><a href='/schools/EIS'>See more...</a></div>
-                   </SchoolLink>
-                </a>
-
-               <a href='/schools/AIS'>
-                   <SchoolLink>
-                        <img src="./images/schoolarea.svg"/>
-                        AIS
-                        <StarRatingFixed />
-                        <div><a href='/schools/AIS'>See more...</a></div>
-                   </SchoolLink>
-                </a>
-
-               <a href='/schools/ISHCMC'>
-                   <SchoolLink>
-                        <img src="./images/schoolarea.svg"/>
-                        ISHCMC
-                        <StarRatingFixed />
-                        <div><a href='/schools/ISHCMC'>See more...</a></div>
-                   </SchoolLink>
-                </a>
-            </SchoolsList2>
 
             <Footer>
                 <span>Business inquiries: ratemyschool.org@gmail.com</span>
