@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'home']);
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'home']);
+Route::get('/review', [App\Http\Controllers\HomeController::class, 'home']);
+
+Route::post('/submit_review', [App\Http\Controllers\HomeController::class, 'submit_review']);
+
+Route::get('/review/{school_name}', [App\Http\Controllers\HomeController::class, 'home2']);
+
+Auth::routes();
+
+Route::middleware('auth')->get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

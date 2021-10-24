@@ -8,6 +8,7 @@ const RedirectFormData = () =>{
 }
 
 const Review = (props) => {
+
     return (
         <Container>
             <Content>
@@ -15,45 +16,44 @@ const Review = (props) => {
             </Content>
             <ReviewForm>
                     
-                    <Rating>
-                        <h2>Choose your school</h2>
-                        <Dropdown options={options} className="dropdown"/>
-                        <form onSubmit={RedirectFormData}>
+                <Rating>
+                    <h2>Choose your school</h2>
+                    <Dropdown options={options} className="dropdown"/>
+       
 
-                        <h1>Campus</h1>
-                        <span>Location</span>
-                        <StarRating />
-                        <span>Size</span>
-                        <StarRating />
-                        <span>Ease of navigation</span>
-                        <StarRating />
-                        <span>Campus Cleanliness</span>
-                        <StarRating />
-                        <span>Bathroom Cleanliness</span>
-                        <StarRating />
-                        <span>Classroom Cleanliness</span>
-                        <StarRating />
-                        <span>Amenities</span>
-                        <StarRating />
+                    <h1>Campus</h1>
+                    <span>Location</span>
+                    <StarRating prop="location" />
+                    <span>Size</span>
+                    <StarRating prop="size" />
+                    <span>Ease of navigation</span>
+                    <StarRating prop="ease_of_navigation" />
+                    <span>Campus Cleanliness</span>
+                    <StarRating prop="campus_cleanliness" />
+                    <span>Bathroom Cleanliness</span>
+                    <StarRating prop="bathroom_cleanliness" />
+                    <span>Classroom Cleanliness</span>
+                    <StarRating prop="classroom_cleanliness" />
+                    <span>Amenities</span>
+                    <StarRating prop="amenities" />
 
-                        <h1>Teachers</h1>
-                        <span>Friendliness</span>
-                        <StarRating />
-                        <span>Teaching quality</span>
-                        <StarRating />
+                    <h1>Teachers</h1>
+                    <span>Friendliness</span>
+                    <StarRating prop="friendliness" />
+                    <span>Teaching quality</span>
+                    <StarRating prop="teaching_quality" />
 
-                        <h1>Students</h1>
-                        <span>Friendliness</span>
-                        <StarRating />
+                    <h1>Students</h1>
+                    <span>Friendliness</span>
+                    <StarRating prop="student_friendliness" />
 
-                        <h1>Would recommend to a friend</h1>
-                        <StarRating />
-                        <button type="submit">Submit Review</button>
-
-                        </form>
+                    <h1>Would recommend to a friend</h1>
+                    <StarRating prop="would_recommend" />
+                    <button id="submit_review">Submit Review</button>
 
 
-                    </Rating>
+
+                </Rating>
             </ReviewForm>
         </Container>
     )
@@ -122,4 +122,8 @@ const ReviewForm = styled.form`
 
 `;
 
+
+
 export default Review;
+
+

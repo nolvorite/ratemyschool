@@ -10,13 +10,13 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@babel/preset-react": "^7.13.13",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^11.2.7",
         "@testing-library/user-event": "^12.8.3",
-        "@babel/preset-react": "^7.13.13",
         "axios": "^0.21",
         "bootstrap": "^4.6.0",
-        "jquery": "^3.6",
+        "jquery": "^3.6.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "popper.js": "^1.16.1",
@@ -29,10 +29,10 @@
         "react-scripts": "4.0.3",
         "react-slick": "^0.28.1",
         "react-star-ratings": "^2.3.0",
-        "styled-components": "^5.3.1",
-        "web-vitals": "^1.1.2",
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.32.11",
-        "sass-loader": "^11.0.1"
+        "sass-loader": "^11.0.1",
+        "styled-components": "^5.3.1",
+        "web-vitals": "^1.1.2"
     }
 }
